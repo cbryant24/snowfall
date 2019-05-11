@@ -1,0 +1,149 @@
+.article-container {
+  display: grid;
+  grid-template-rows: [header-start] 1fr [header-end introduction-start] 100vh [introduction-end];
+  grid-template-columns: [first-column-start] 1fr [first-column-end second-column-start] 1fr [second-column-end];
+  font-family: $font-primary;
+  color: $color-black;
+  padding: 5rem 10rem;
+
+
+  // <div class="video-cta">
+  //     <span class="video-cta__play-button">
+  //       <i class="fas fa-play fa-2x"></i>
+  //     </span>
+  //     <p class="video-cta__text"></p>
+  //   </div>
+  // </div>
+  .video-cta {
+
+    &__play-button {}
+
+    &__text {}
+
+
+  }
+
+  .article-header {
+
+    grid-row: header-start / header-end;
+    grid-column: first-column-start / second-column-end;
+    display: flex;
+    color: $color-secondary;
+    margin: 1.5rem 0;
+    padding-bottom: 3rem;
+
+    border-bottom: solid 1.2rem rgba($color-primary, .2);
+
+    h1 {
+      line-height: 6rem;
+    }
+
+    span {
+      color: $color-primary;
+      font-size: 44px;
+
+      &:nth-child(1) {
+        font-size: 60px;
+      }
+    }
+
+    &__title {}
+
+    &__subtitle {
+      align-self: flex-end;
+      width: 60%;
+      font-size: 1.8rem;
+      font-weight: $font-bold;
+      text-transform: uppercase;
+      line-height: $normal-lineheight;
+      color: $color-grey-dark-3;
+    }
+  }
+
+  .article-introduction {
+
+    grid-row: introduction-start / introduction-end;
+    grid-column: 1 / span 2;
+    display: flex;
+
+    &__author {
+      width: 100%;
+    }
+
+    &__main-text {
+      width: 40%;
+      margin: auto 0 auto 3rem;
+    }
+
+    &__byline {
+      text-align: center;
+
+      span {
+        display: block;
+        color: $color-primary;
+      }
+    }
+
+    &__combox-box {
+      height: 100%;
+    }
+
+    &__image {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    &__text {
+      margin-top: 1rem;
+
+      &:nth-child(2)::first-letter {
+        color: #a50034;
+        font-size: 72px;
+        font-weight: 700;
+        margin-right: 1.5rem;
+        float: left;
+        line-height: 6.0rem;
+      }
+    }
+
+  }
+
+  .callout {
+
+    &__quotes {}
+
+    &__symbol {}
+
+    &.first-section {}
+
+    &.second-section {}
+  }
+
+  .article-continued {
+
+    &__text {}
+  }
+
+  .article-highlight {
+    &__title {}
+
+    &__descriptions {}
+
+    &__images {
+
+      &-box {}
+    }
+
+    &__image {}
+
+    &__description {}
+
+    &.first-section {}
+
+    &.second-section {}
+
+    &.third-section {}
+
+  }
+}

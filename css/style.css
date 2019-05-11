@@ -1,0 +1,158 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 50%; } }
+
+body {
+  font-family: "futura-pt", sans-serif;
+  font-size: 1.6rem;
+  color: #6D5D4B;
+  font-weight: 300;
+  line-height: 1.6; }
+  body h1 {
+    font-size: 7.4rem;
+    text-transform: uppercase; }
+  body h3 {
+    font-size: 4.8rem; }
+  body h4 {
+    font-size: 4.4rem; }
+  body h5 {
+    font-size: 2.4rem;
+    text-transform: uppercase; }
+
+.container {
+  display: grid;
+  grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; }
+  @media only screen and (max-width: 62.5em) {
+    .container {
+      grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
+      grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; } }
+  @media only screen and (max-width: 50em) {
+    .container {
+      grid-template-rows: 6rem calc(100vh - 6rem); } }
+
+.heading-1, .heading-2, .heading-3, .heading-4 {
+  font-family: "futura-pt", sans-serif;
+  font-weight: 400; }
+
+.heading-1 {
+  font-size: 4.5rem;
+  color: #f9f7f6;
+  line-height: 1; }
+
+.heading-2 {
+  font-size: 4rem;
+  font-style: italic;
+  line-height: 1; }
+  .heading-2--light {
+    color: #f9f7f6; }
+  .heading-2--dark {
+    color: #54483A; }
+
+.heading-3 {
+  font-size: 1.6rem;
+  color: #00a8b6;
+  text-transform: uppercase; }
+
+.heading-4 {
+  font-size: 1.9rem; }
+  .heading-4--light {
+    color: #f9f7f6; }
+  .heading-4--dark {
+    color: #54483A; }
+
+.btn {
+  background-color: #00a8b6;
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  font-family: "futura-pt", sans-serif;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  padding: 1.8rem 3rem;
+  cursor: pointer;
+  transition: all .2s; }
+  .btn:hover {
+    background-color: #00a8b5; }
+
+.mb-sm {
+  margin-bottom: 2rem; }
+
+.mb-md {
+  margin-bottom: 3rem; }
+
+.mb-lg {
+  margin-bottom: 4rem; }
+
+.mb-hg {
+  margin-bottom: 8rem; }
+
+.article-container {
+  display: grid;
+  grid-template-rows: [header-start] 1fr [header-end introduction-start] 100vh [introduction-end];
+  grid-template-columns: [first-column-start] 1fr [first-column-end second-column-start] 1fr [second-column-end];
+  font-family: "futura-pt", sans-serif;
+  color: #000;
+  padding: 5rem 10rem; }
+  .article-container .article-header {
+    grid-row: header-start / header-end;
+    grid-column: first-column-start / second-column-end;
+    display: flex;
+    color: #a50034;
+    margin: 1.5rem 0;
+    padding-bottom: 3rem;
+    border-bottom: solid 1.2rem rgba(0, 168, 182, 0.2); }
+    .article-container .article-header h1 {
+      line-height: 6rem; }
+    .article-container .article-header span {
+      color: #00a8b6;
+      font-size: 44px; }
+      .article-container .article-header span:nth-child(1) {
+        font-size: 60px; }
+    .article-container .article-header__subtitle {
+      align-self: flex-end;
+      width: 60%;
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      line-height: 3rem;
+      color: #474747; }
+  .article-container .article-introduction {
+    grid-row: introduction-start / introduction-end;
+    grid-column: 1 / span 2;
+    display: flex; }
+    .article-container .article-introduction__author {
+      width: 100%; }
+    .article-container .article-introduction__main-text {
+      width: 40%;
+      margin: auto 0 auto 3rem; }
+    .article-container .article-introduction__byline {
+      text-align: center; }
+      .article-container .article-introduction__byline span {
+        display: block;
+        color: #00a8b6; }
+    .article-container .article-introduction__combox-box {
+      height: 100%; }
+    .article-container .article-introduction__image {
+      height: 100%;
+      width: 100%;
+      object-fit: cover; }
+    .article-container .article-introduction__text {
+      margin-top: 1rem; }
+      .article-container .article-introduction__text:nth-child(2)::first-letter {
+        color: #a50034;
+        font-size: 72px;
+        font-weight: 700;
+        margin-right: 1.5rem;
+        float: left;
+        line-height: 6.0rem; }
