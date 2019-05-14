@@ -280,7 +280,13 @@
             font-weight: bold;
             color: $color-primary;
           }
-          
+        }
+
+        &:hover {
+
+          .article-highlight__descriptions {
+            display: block;
+          }
         }
       }
     }
