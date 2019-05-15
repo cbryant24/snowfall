@@ -1,7 +1,7 @@
 .article-container {
   display: grid;
   grid-template-rows: [header-start] 1fr [header-end separator-one-start] 4rem [separator-one-end introduction-start] minmax(100vh, min-content) 
-                      [introduction-end separator-two-start] 4rem [separator-two-end callout-one-start] 25rem [callout-one-end] repeat(4, [min-row-start] min-content [min-row-end]);
+                      [introduction-end separator-two-start] 4rem [separator-two-end callout-one-start] 25rem [callout-one-end] repeat(5, [min-row-start] min-content [min-row-end]);
   grid-template-columns: $full-display;
   row-gap: 3.5rem;
   font-family: $font-primary;
@@ -10,6 +10,10 @@
 
   .narrow-col {
     grid-column: narrow-column-begin / narrow-column-end;
+  }
+
+  .narrow-col-edge {
+    grid-column: narrow-column-begin / right-edge-end;
   }
 
   .wide-col {
@@ -232,6 +236,36 @@
     &.second-section {
       grid-row: min-row-start 3 / min-row-end 3;
     }
+    
+    &.third-section {
+      grid-row: min-row-start 5 / min-row-end 5;
+      min-height: 100vh;
+      display: flex;
+
+      .article-continued__main-text {
+        width: 50%;
+      }
+
+      .article-introduction__combo-box {
+        margin-left: 5rem;
+      }
+
+      .article-introduction__image {
+        min-height: 100vh;
+        margin-left: 5rem;
+      }
+
+      .video-cta {
+        grid-row: 2 / span 1;
+        grid-column: 1 / span 2;
+        justify-self: flex-end;
+        align-self: flex-end;
+      }
+
+      .article-continued__text {
+        column-count: 1;
+      }
+    }
   }
 
   .article-highlight {
@@ -244,6 +278,15 @@
       display: flex;
       justify-content: space-between;
       margin: 0 auto;
+
+      &.second-section {
+        align-items: center;
+        // padding: 0 2rem;
+
+        // img {
+        //   padding: 0 2rem;
+        // }
+      }
     }
 
     &__header {
@@ -361,7 +404,8 @@
     &.second-section {
       grid-row: min-row-start 4 / min-row-end 4;
       justify-content: space-around;
-      width: 85%;
+      width: 80%;
+      min-height: 40vh;
       background: $color-primary;
       font-size: 1.4rem;
       font-weight: $font-book;
@@ -369,12 +413,13 @@
       // padding: 2rem;
 
       img {
-        width: 20rem;
-        height: 18rem;
+        width: 22rem;
+        height: 22rem;
+        margin-right: 2rem;
       }
 
       div {
-        // width: 80%;
+        margin: 2.5rem 1rem;
       }
     }
 

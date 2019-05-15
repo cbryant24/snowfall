@@ -35,8 +35,8 @@ $large-lineheight: 3.6rem;
 
 
 //GRID LAYOUTS
-$full-display: [left-edge-start] 10rem [ left-edge-end first-column-start ] 15rem [ narrow-column-begin ] 1fr [ first-column-end second-column-start ] 
-                1fr [narrow-column-end] 15rem [ second-column-end ] 10rem [ right-edge-end ];
+$full-display: [left-edge-start] 10rem [ left-edge-end first-column-start ] 5rem [ narrow-column-begin ] 1fr [ first-column-end second-column-start ] 
+                1fr [narrow-column-end] 5rem [ second-column-end ] 10rem [ right-edge-end ];
 
 // RESPONSIVE BREAKPOINTS
 $bp-largest: 75em;   // 1200px

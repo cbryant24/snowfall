@@ -100,14 +100,16 @@ body {
 
 .article-container {
   display: grid;
-  grid-template-rows: [header-start] 1fr [header-end separator-one-start] 4rem [separator-one-end introduction-start] minmax(100vh, min-content) [introduction-end separator-two-start] 4rem [separator-two-end callout-one-start] 25rem [callout-one-end] repeat(4, [min-row-start] min-content [min-row-end]);
-  grid-template-columns: [left-edge-start] 10rem [left-edge-end first-column-start] 15rem [narrow-column-begin] 1fr [first-column-end second-column-start] 1fr [narrow-column-end] 15rem [second-column-end] 10rem [right-edge-end];
+  grid-template-rows: [header-start] 1fr [header-end separator-one-start] 4rem [separator-one-end introduction-start] minmax(100vh, min-content) [introduction-end separator-two-start] 4rem [separator-two-end callout-one-start] 25rem [callout-one-end] repeat(5, [min-row-start] min-content [min-row-end]);
+  grid-template-columns: [left-edge-start] 10rem [left-edge-end first-column-start] 5rem [narrow-column-begin] 1fr [first-column-end second-column-start] 1fr [narrow-column-end] 5rem [second-column-end] 10rem [right-edge-end];
   row-gap: 3.5rem;
   font-family: "futura-pt", sans-serif;
   color: #000;
   padding: 5rem 0; }
   .article-container .narrow-col {
     grid-column: narrow-column-begin / narrow-column-end; }
+  .article-container .narrow-col-edge {
+    grid-column: narrow-column-begin / right-edge-end; }
   .article-container .wide-col {
     grid-column: first-column-start / second-column-end; }
   .article-container .full-col {
@@ -243,14 +245,34 @@ body {
         margin-bottom: 2rem; }
     .article-container .article-continued.second-section {
       grid-row: min-row-start 3 / min-row-end 3; }
+    .article-container .article-continued.third-section {
+      grid-row: min-row-start 5 / min-row-end 5;
+      min-height: 100vh;
+      display: flex; }
+      .article-container .article-continued.third-section .article-continued__main-text {
+        width: 50%; }
+      .article-container .article-continued.third-section .article-introduction__combo-box {
+        margin-left: 5rem; }
+      .article-container .article-continued.third-section .article-introduction__image {
+        min-height: 100vh;
+        margin-left: 5rem; }
+      .article-container .article-continued.third-section .video-cta {
+        grid-row: 2 / span 1;
+        grid-column: 1 / span 2;
+        justify-self: flex-end;
+        align-self: flex-end; }
+      .article-container .article-continued.third-section .article-continued__text {
+        column-count: 1; }
   .article-container .article-highlight {
     display: grid;
-    grid-template-columns: [left-edge-start] 10rem [left-edge-end first-column-start] 15rem [narrow-column-begin] 1fr [first-column-end second-column-start] 1fr [narrow-column-end] 15rem [second-column-end] 10rem [right-edge-end];
+    grid-template-columns: [left-edge-start] 10rem [left-edge-end first-column-start] 5rem [narrow-column-begin] 1fr [first-column-end second-column-start] 1fr [narrow-column-end] 5rem [second-column-end] 10rem [right-edge-end];
     color: #FFF; }
     .article-container .article-highlight-container {
       display: flex;
       justify-content: space-between;
       margin: 0 auto; }
+      .article-container .article-highlight-container.second-section {
+        align-items: center; }
     .article-container .article-highlight__header {
       width: 40%;
       z-index: 5; }
@@ -316,14 +338,18 @@ body {
     .article-container .article-highlight.second-section {
       grid-row: min-row-start 4 / min-row-end 4;
       justify-content: space-around;
-      width: 85%;
+      width: 80%;
+      min-height: 40vh;
       background: #00a8b6;
       font-size: 1.4rem;
       font-weight: 400;
       line-height: 2.4rem; }
       .article-container .article-highlight.second-section img {
-        width: 20rem;
-        height: 18rem; }
+        width: 22rem;
+        height: 22rem;
+        margin-right: 2rem; }
+      .article-container .article-highlight.second-section div {
+        margin: 2.5rem 1rem; }
   .article-container .modal.fade .modal-dialog {
     -webkit-transition: -webkit-transform 0.3s ease-out;
     -moz-transition: -moz-transform 0.3s ease-out;
