@@ -19,7 +19,7 @@ $color-grey-dark-3: rgb(71, 71, 71);
 $font-primary: 'futura-pt', sans-serif;
 $font-display: 'futura-pt', sans-serif;
 $font-bold: bold;
-$font-book: 500;
+$font-book: 400;
 $font-extra-bold: 700;
 
 // FONT SIZES
@@ -33,6 +33,10 @@ $small-lineheight: 2.4rem;
 $normal-lineheight: 3.0rem;
 $large-lineheight: 3.6rem;
 
+
+//GRID LAYOUTS
+$full-display: [left-edge-start] 10rem [ left-edge-end first-column-start ] 15rem [ narrow-column-begin ] 1fr [ first-column-end second-column-start ] 
+                1fr [narrow-column-end] 15rem [ second-column-end ] 10rem [ right-edge-end ];
 
 // RESPONSIVE BREAKPOINTS
 $bp-largest: 75em;   // 1200px
@@ -51,7 +55,7 @@ $bp-small: 37.5em;    // 600px;
 html {
     box-sizing: border-box;
     font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
-
+    scroll-behavior: smooth;
     @media only screen and (max-width: $bp-largest) {
         font-size: 50%;
     }
