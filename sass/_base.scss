@@ -35,14 +35,14 @@ $large-lineheight: 3.6rem;
 
 
 //GRID LAYOUTS
-$full-display: [left-edge-start] 10rem [ left-edge-end first-column-start ] 5rem [ narrow-column-begin ] 1fr [ first-column-end second-column-start ] 
+$full-display: [left-edge-start] 10rem [ left-edge-end first-column-start ] 5rem [ narrow-column-start ] 1fr [ first-column-end second-column-start ] 
                 1fr [narrow-column-end] 5rem [ second-column-end ] 10rem [ right-edge-end ];
 
 // RESPONSIVE BREAKPOINTS
 $bp-largest: 75em;   // 1200px
 $bp-large: 62.5em;   // 1000px
 $bp-medium: 50em;    // 800px;
-$bp-small: 37.5em;    // 600px;
+$bp-small: 678px;    // 600px;
 
 *,
 *::before,
@@ -59,6 +59,10 @@ html {
     @media only screen and (max-width: $bp-largest) {
         font-size: 50%;
     }
+
+    // @media only screen and (max-width: $bp-medium) {
+    //   font-size: 45%;
+    // }
 }
 
 body {

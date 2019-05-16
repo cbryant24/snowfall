@@ -1,19 +1,24 @@
 .article-container {
   display: grid;
   grid-template-rows: [header-start] 1fr [header-end separator-one-start] 4rem [separator-one-end introduction-start] minmax(100vh, min-content) 
-                      [introduction-end separator-two-start] 4rem [separator-two-end callout-one-start] 25rem [callout-one-end] repeat(5, [min-row-start] min-content [min-row-end]);
+                      [introduction-end separator-two-start] 4rem [separator-two-end callout-one-start] 25rem [callout-one-end] repeat(7, [min-row-start] min-content [min-row-end]);
   grid-template-columns: $full-display;
   row-gap: 3.5rem;
   font-family: $font-primary;
   color: $color-black;
   padding: 5rem 0;
 
+  @media only screen and (max-width: $bp-small) {
+    display: flex;
+    flex-direction: column;
+  }
+
   .narrow-col {
-    grid-column: narrow-column-begin / narrow-column-end;
+    grid-column: narrow-column-start / narrow-column-end;
   }
 
   .narrow-col-edge {
-    grid-column: narrow-column-begin / right-edge-end;
+    grid-column: narrow-column-start / right-edge-end;
   }
 
   .wide-col {
@@ -30,6 +35,10 @@
 
   .edge-to-left {
     grid-column: first-column-start / right-edge-end;
+  }
+
+  .edge-to-left-narrow {
+    grid-column: narrow-column-start / right-edge-end;
   }
 
   .bar-separator {
@@ -128,6 +137,10 @@
     grid-row: introduction-start / introduction-end;
     display: flex;
 
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: column;
+    }
+
     &__author {
       width: 100%;
     }
@@ -135,6 +148,11 @@
     &__main-text {
       width: 40%;
       margin: auto 0 auto 3rem;
+
+      @media only screen and (max-width: $bp-small) {
+        margin: 3rem;
+        width: 100%;
+      }
     }
 
     &__byline {
@@ -146,13 +164,21 @@
       }
     }
 
-    &__combox-box {
+    &__combo-box {
       height: 100%;
       display: grid;
       grid-template-rows: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
       grid-auto-columns: 0;
       grid-auto-rows: 0;
+
+      @media only screen and (max-width: $bp-small) {
+        min-height: 75vh;
+
+        .video-cta {
+          width: 100%;
+        }
+      }
     }
 
     &__image {
@@ -219,7 +245,19 @@
       grid-row: callout-one-start / callout-one-end;
     }
 
-    &.second-section {}
+    &.second-section {
+      grid-row: min-row-start 6 / min-row-end 6;
+      color: $color-primary;
+      margin: 5rem auto;
+
+      p:nth-child(1) {
+        transform: none;
+      }
+
+      p:nth-child(2) {
+        color: $color-secondary;
+      }
+    }
   }
 
   .article-continued {
@@ -227,6 +265,11 @@
 
     &__text {
       column-count: 2;
+
+      @media only screen and (max-width: $bp-small) {
+        column-count: 1;
+        margin: 3rem;
+      }
 
       p {
         margin-bottom: 2rem;
@@ -242,17 +285,36 @@
       min-height: 100vh;
       display: flex;
 
+      @media only screen and (max-width: $bp-small) {
+        flex-direction: column;
+        
+      }
+
       .article-continued__main-text {
         width: 50%;
+
+        @media only screen and (max-width: $bp-small) {
+          width: 100%;
+        }
       }
 
       .article-introduction__combo-box {
+        height: inherit;
         margin-left: 5rem;
+
+        @media only screen and (max-width: $bp-small) {
+          margin-left: 0;
+          padding: 5rem 10rem;
+        }
       }
 
       .article-introduction__image {
-        min-height: 100vh;
-        margin-left: 5rem;
+        min-height: 70vh;
+
+        @media only screen and (max-width: $bp-small) {
+          margin-left: 0;
+          height: 120vh;
+        }
       }
 
       .video-cta {
@@ -260,6 +322,17 @@
         grid-column: 1 / span 2;
         justify-self: flex-end;
         align-self: flex-end;
+        width: 50%;
+        text-align: center;
+        margin: 0 -2rem 2rem 0rem;
+
+        &__text {
+          padding: 4rem 4rem;
+        }
+
+        &__play-button {
+          margin-bottom: 1rem;
+        }
       }
 
       .article-continued__text {
@@ -269,29 +342,41 @@
   }
 
   .article-highlight {
-    // grid-column: left-edge-start/ right-edge-end;
     display: grid;
     grid-template-columns: $full-display;
     color: $color-white;
+
+    @media only screen and (max-width: $bp-small) {
+      display: block;
+    }
 
     &-container {
       display: flex;
       justify-content: space-between;
       margin: 0 auto;
 
+      @media only screen and (max-width: $bp-small) {
+        flex-direction: column;
+        margin-left: 2.5rem;
+      }
+
       &.second-section {
         align-items: center;
-        // padding: 0 2rem;
+      }
 
-        // img {
-        //   padding: 0 2rem;
-        // }
+      &.third-section {
+        justify-content: flex-start;
+        align-items: center;
       }
     }
 
     &__header {
       width: 40%;
       z-index: 5;
+
+      @media only screen and (max-width: $bp-small) {
+        width: 100%;
+      }
     }
 
     &__content {
@@ -322,6 +407,10 @@
       height: 0;
       opacity: 0;
       transition: all 0.3s ease-in;
+
+      @media only screen and (max-width: $bp-small) {
+        grid-column: first-image-begin / third-image-end;
+      }
     }
 
     &__content {
@@ -333,6 +422,11 @@
       grid-column-gap: 2.5rem;
       width: 50%;
       z-index: 5;
+
+      @media only screen and (max-width: $bp-small) {
+        grid-template-columns: [first-image-begin] 150px [ first-image-end second-image-begin] 150px [second-image-end third-image-begin] 150px
+        [third-image-end]
+      }
 
       span {
         display: block;
@@ -346,6 +440,10 @@
           font-size: 4.8rem;
           font-weight: bold;
           color: $color-primary;
+
+          @media only screen and (max-width: $bp-small) {
+            bottom: -25px;
+          }
         }
       }
     }
@@ -410,8 +508,7 @@
       font-size: 1.4rem;
       font-weight: $font-book;
       line-height: $small-lineheight;
-      // padding: 2rem;
-
+      
       img {
         width: 22rem;
         height: 22rem;
@@ -421,10 +518,66 @@
       div {
         margin: 2.5rem 1rem;
       }
+
+      @media only screen and (max-width: $bp-small) {
+        width: 100%;
+
+        img {
+          width: 25rem;
+          height: 25rem;
+          margin-right: 0;
+          margin-bottom: 3rem;
+        }
+      }
     }
 
-    &.third-section {}
+    &.third-section {
+      grid-row: min-row-start 7 / min-row-end 7;
+      background-color: $color-primary;
+      position: absolute;
+      left: 200rem;
+      min-height: 30rem;
+      animation: slide-in-left 0.5s forwards;
+      animation-delay: 2s;
 
+      img {
+        margin-right: 2.5rem;
+
+        &:nth-child(1) {
+          height: 24rem;
+        }
+
+        &:nth-child(2) {
+          height: 18rem;
+          width: 21rem;
+        }
+      }
+
+      p {
+        width: 30%;
+        // margin:0 15rem 0 5rem;
+
+        span { display: block; }
+      }
+    }
+
+  }
+
+  .slide-container {
+    grid-row: min-row-start 7 / min-row-end 7;
+    display: grid;
+    grid-template-columns: $full-display;
+    min-height: 30rem;
+    position: relative;
+
+    @media only screen and (max-width: $bp-small) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  @keyframes slide-in-left {
+      100% { left: 0; }
   }
 
   .modal.fade .modal-dialog {
