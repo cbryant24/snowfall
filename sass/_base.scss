@@ -23,25 +23,27 @@ $font-book: 400;
 $font-extra-bold: 700;
 
 // FONT SIZES
-$h1-size: 7.4rem;
-$h3-size: 4.8rem;
-$h4-size: 4.4rem;
-$h5-size: 2.4rem;
+$h1-size: 74px;
+$h3-size: 48px;
+$h4-size: 44px;
+$h5-size: 24px;
 
 //LINE HEIGHTS
-$small-lineheight: 2.4rem;
-$normal-lineheight: 3.0rem;
-$large-lineheight: 3.6rem;
+$small-lineheight: 24px;
+$normal-lineheight: 30px;
+$large-lineheight: 36px;
 
 
 //GRID LAYOUTS
-$full-display: [left-edge-start] 10rem [ left-edge-end first-column-start ] 5rem [ narrow-column-start ] 1fr [ first-column-end second-column-start ] 
-                1fr [narrow-column-end] 5rem [ second-column-end ] 10rem [ right-edge-end ];
+$full-display: [left-edge-start] 10rem [ left-edge-end first-column-start ] 20rem [ narrow-column-start ] 1fr [ first-column-end second-column-start ] 
+                1fr [narrow-column-end] 20rem [ second-column-end ] 10rem [ right-edge-end ];
+
+
 
 // RESPONSIVE BREAKPOINTS
-$bp-largest: 75em;   // 1200px
-$bp-large: 62.5em;   // 1000px
-$bp-medium: 50em;    // 800px;
+$bp-largest: 1200px;   // 1200px
+$bp-large: 1128px;   // 1000px
+$bp-medium: 800px;    // 800px;
 $bp-small: 678px;    // 600px;
 
 *,
@@ -56,48 +58,37 @@ html {
     box-sizing: border-box;
     font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
     scroll-behavior: smooth;
-    @media only screen and (max-width: $bp-largest) {
-        font-size: 50%;
+    // @media only screen and (max-width: $bp-largest) {
+    //     font-size: 50%;
+    // }
+
+    @media only screen and (max-width: $bp-large) {
+      font-size: 58%;
     }
 
-    // @media only screen and (max-width: $bp-medium) {
-    //   font-size: 45%;
-    // }
+    @media only screen and (max-width: $bp-small) {
+      font-size: 45%;
+    }
 }
 
 body {
     font-family: $font-primary;
-    font-size: 1.6rem;
-    h1{
+    font-size: 1.6rem !important;
+    .h1-font-size {
       font-size: $h1-size;
       text-transform: uppercase;
     }
-    h3{
+    .h3-font-size {
       font-size: $h3-size;
     }
-    h4{
+    .h4-font-size {
       font-size: $h4-size;
     }
-    h5{
+    .h5-font-size {
       font-size: $h5-size;
       text-transform: uppercase;
     }
     color: $color-grey-dark-2;
     font-weight: 300;
-    line-height: 1.6;
-}
-
-.container {
-    display: grid;
-    grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
-    grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
-
-    @media only screen and (max-width: $bp-large) {
-        grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
-        grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
-    }
-
-    @media only screen and (max-width: $bp-medium) {
-        grid-template-rows: 6rem calc(100vh - 6rem);
-    }
+    line-height: 1.6rem;
 }
