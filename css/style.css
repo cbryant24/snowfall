@@ -126,6 +126,10 @@ body {
     grid-column: first-column-start / right-edge-end; }
   .article-container .edge-to-left-narrow {
     grid-column: narrow-column-start / right-edge-end; }
+  .article-container .active-photo {
+    filter: grayscale(0%); }
+  .article-container .inactive-photo {
+    filter: grayscale(100%); }
   .article-container .bar-separator {
     height: 2.0rem;
     background: rgba(0, 168, 182, 0.2); }
@@ -273,6 +277,9 @@ body {
       align-self: flex-end; }
       .article-container .article-introduction .video-cta__text {
         width: 75%; }
+        @media only screen and (max-width: 425px) {
+          .article-container .article-introduction .video-cta__text {
+            width: 65%; } }
   .article-container .callout {
     width: 40%;
     line-height: 3.6rem;
@@ -356,6 +363,9 @@ body {
           .article-container .article-continued.third-section .video-cta__play-button {
             margin-bottom: 0;
             margin-left: -0.5rem; } }
+        @media only screen and (max-width: 425px) {
+          .article-container .article-continued.third-section .video-cta {
+            width: 70%; } }
       .article-container .article-continued.third-section .article-continued__text {
         column-count: 1; }
   .article-container .article-highlight {
@@ -498,9 +508,7 @@ body {
       grid-row: min-row-start 7 / min-row-end 7;
       background-color: #00a8b6;
       margin: 4.0rem 0;
-      min-height: 3.0rem;
-      animation: slide-in-left 0.5s forwards;
-      animation-delay: 2s; }
+      min-height: 3.0rem; }
       .article-container .article-highlight.third-section img {
         margin-right: 2.5rem; }
         .article-container .article-highlight.third-section img:nth-child(1) {
@@ -532,10 +540,6 @@ body {
       .article-container .slide-container {
         display: flex;
         flex-direction: column; } }
-
-@keyframes slide-in-left {
-  100% {
-    left: 0; } }
   .article-container .modal.fade .modal-dialog {
     -webkit-transition: -webkit-transform 0.3s ease-out;
     -moz-transition: -moz-transform 0.3s ease-out;
