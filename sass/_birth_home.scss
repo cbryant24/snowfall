@@ -1,7 +1,7 @@
 .article-container {
   display: flex;
   flex-direction: column;
-
+  line-height: 2.4em;
   font-family: $font-primary;
   color: $color-black;
 
@@ -10,6 +10,7 @@
     flex-wrap: wrap;
     width: 100%;
     height: 75vh;
+    position: relative;
     background-color: black;
     overflow: hidden;
     color: white;
@@ -22,6 +23,18 @@
       width: 50%;
       transform: scale(1.5) translateY(-6%);
       clip-path: inset(20% 25% 0% 30%);
+
+      @media only screen and (max-width: $bp-medium) {
+        clip-path: inset(30% 18% 0% 20%);
+      }
+
+      @media only screen and (max-width: $bp-mobile) {
+        clip-path: inset(0% 0% 0% 0%);
+        width: 100%;
+        position: absolute;
+        transform: none;
+      }
+
     }
 
     &__title {
@@ -29,17 +42,43 @@
       margin: auto;
 
       &-main {
-        text-transform: uppercase;
-        font-size: 42px;
         margin: .5em 0;
+        text-transform: uppercase;
+        font-size: 3.6em;
+        letter-spacing: .1em;
+        font-family: $font-primary;
+        font-weight: $font-light;
+        font-style: $font-normal;
 
-        span { color: red;}
+        span { color: $color-secondary;}
       }
 
-      &-sub { margin: 0 0 1.5em 0; }
+      &-sub { 
+        margin: 0 0 1.5em 0;
+        font-size: 1.4em;
+        font-family: $font-secondary;
+        line-height: 2em;
+      }
 
       &-author {
+        font-weight: $font-bold;
+        font-size: 1em;
+        line-height: 2em;
         span { padding: 0 0 1.5em 0; }
+      }
+
+      hr { display: none; }
+
+      @media only screen and (max-width: $bp-mobile) {
+        width: 55%;
+        margin: 1em auto;
+        z-index: 10;
+
+        hr {
+          display: block;
+          border: 1.5px solid #a50034;
+          width: 30%;
+        }
       }
     }
   }
@@ -47,7 +86,6 @@
   .image-callout {
     img {
       object-fit: cover;
-      height: 12%;
       width: 30%;
     }
   }
@@ -56,7 +94,8 @@
     display: flex;
     flex-direction: column;
     font-size: 1rem;
-    margin: 0 20em;
+    font-family: $font-secondary;
+    margin: 5em 20em;
 
     p { font-size: 1.6em; }
 
@@ -64,15 +103,25 @@
 
       &-subheading {
         margin: 1.5em 0;
-        color: red;
+        color: $color-secondary;
+        font-size: 2.4em;
+        font-family: $font-primary;
+        font-weight: $font-bold;
         text-align: center;
-        font-size: 2.8em;
         text-transform: uppercase;
+
+        @media only screen and (max-width: $bp-mobile) {
+            margin: .5em 0;
+        }
       }
 
       &-main {
         column-count: 2;
         column-gap: 5em;
+
+        @media only screen and (max-width: $bp-mobile) {
+          column-count: 1;
+        }
       }
     }
 
@@ -82,26 +131,56 @@
       &.quote-callout {
         display: grid;
         column-gap: 5em;
-        grid-template-rows: .5fr 1fr repeat(3, .5fr);
+        grid-template-rows: auto;
         grid-template-columns: repeat(2, 1fr);
+
+        @media only screen and (max-width: $bp-large) {
+          grid-template-rows: repeat(5, min-content);
+        }
+
+        @media only screen and (max-width: $bp-mobile) {
+          display: flex;
+          flex-direction: column;
+        }
 
         .quote { 
           grid-column: 1 / span 2; 
           grid-row: 2 / span 1;
           justify-self: center;
           align-self: center;
+          margin: 1.5em 0;
+          color: $color-secondary;
+          font-family: $font-primary;
+          font-style: $font-normal;
           font-size: 3.2em;
+          font-weight: $font-book;
+          line-height: 1.8em;
+          text-align: center;
+          text-transform: uppercase;
+
+          @media only screen and (max-width: $bp-mobile) {
+            color: inherit;
+            font-family: $font-secondary;
+            font-size: 1.6em;
+            line-height: inherit;
+            text-align: start;
+            text-transform: none;
+          }
         }
         p:nth-child(1), p:nth-child(3), p:nth-child(4), p:nth-child(5) { grid-column: 1 / span 1;}
         p:nth-child(6), p:nth-child(7), p:nth-child(8), p:nth-child(9) { grid-column: 2 / span 1;}
         p:nth-child(1) { grid-row: 1 / span 1}
         p:nth-child(3) { grid-row: 3 / span 1}
-        p:nth-child(4) { grid-row: 4 / span 1}
-        p:nth-child(5) { grid-row: 5 / span 1}
+        p:nth-child(4) { 
+          grid-row: 4 / span 1;
+          align-self: center;
+        }
+        p:nth-child(5) { grid-row: 5 / span 2}
         p:nth-child(6) { grid-row: 1 / span 1}
         p:nth-child(7) { grid-row: 3 / span 1}
-        p:nth-child(8) { grid-row: 4 / span 1}    
-        p:nth-child(9) { grid-row: 5 / span 1}
+        p:nth-child(8) { grid-row: 4 / span 2}
+        p:nth-child(9) { grid-row: 6 / span 1}
+
       }
     }
 
@@ -113,26 +192,79 @@
         height: auto;
         width: 25%;
         margin-right: 3em;
+
+        &.two {
+          @-moz-document url-prefix() {
+            width: 30%;
+          }
+        }
+        &.three {
+          @-moz-document url-prefix() {
+            width: 40%;
+          }
+        }
       }
 
       &__text {
         align-self: center;
+        color: $color-secondary;
+        font-family: $font-primary;
+        font-style: $font-normal;
         font-size: 1.3em;
-        color: red;
+        font-weight: $font-book;
+        line-height: 1.8em;
 
-        p:first-child {
-          
-          &:before {
-            content: "|";
+        &-quote {
+          border-left: 4px solid #a50034;
+          padding-left: 1em;  
+        }
 
-            margin-right: 1em;
-          }
-        }
-        p:last-child {
-          margin-left: 2em;
-        }
+        &-name { padding-left: 1em; }
 
       }
+
+      @media only screen and (max-width: $bp-large) {
+        @-moz-document url-prefix() {
+          &__img.one { width: 75%; }
+          &__img.two, &__img.three { width: 100%; }
+        }
+      }
+
+      @media only screen and (max-width: $bp-medium) {
+        &__img { width: 50%; }
+
+        @-moz-document url-prefix() {
+          &__img { width: 100%; }
+        }
+      }
+
+      @media only screen and (max-width: $bp-mobile) {
+        flex-direction: column;
+        margin: 1.5em 0;
+
+        &__img { width: 100%; }
+
+        @-moz-document url-prefix() {
+          &__img.one { width: 100%; }
+        }
+
+        &__text {
+          margin: 1em 0;
+          font-size: 1.6em; 
+        }
+      }
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      margin: 5em 15em;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      margin: 5em 10em;
+    }
+
+    @media only screen and (max-width: $bp-mobile) {
+      margin: 0 3em;
     }
   }
 
@@ -144,33 +276,59 @@
     .protest-img {
       width: 100%;
       margin: 3em auto;
-      max-height: 55vh;
+      max-height: 45vh;
       overflow: hidden;
       text-align: center;
 
-      img { transform: translateY(-15%); }
+      img { 
+        transform: translateY(-35%) scale(0.9);
+        width: 100%;
+      }
+
+      @media only screen and (max-width: $bp-mobile) {
+        img { 
+          width: 100%;
+          transform: none; 
+        }
+      }
     }
 
     .image-callout {
       display: flex;
+      height: 100%;
       width: 75%;
       margin: 3em auto;
 
-      img { margin-right: 3em; }
+      img { 
+        margin-right: 3em; 
+
+        @-moz-document url-prefix() {
+           width: 50%;
+        }
+      }
 
       &__text {
         align-self: center;
         font-size: 1.3em;
-        color: red;
+        color: $color-secondary;
       }
 
 
       p:first-child {
-        
-        &:before {
-          content: "|";
+        font-size: 1.8em;
+        line-height: 1.4em;
+        border-left: 4px solid #a50034;
+        padding-left: 1em; 
+      }
 
-          margin-right: 1em;
+      @media only screen and (max-width: $bp-mobile) {
+        width: 90%;
+        flex-direction: column;
+
+        img { 
+          margin-right: 0;
+          margin-bottom: 3em;
+          width: 100%;
         }
       }
     }
@@ -184,12 +342,24 @@
       h3 {
         margin: .5em 0;
         font-size: 3.2em;
+        font-family: $font-primary;
+        font-weight: $font-light;
         text-align: center;
         text-transform: uppercase;
       }
 
       &__text {
+        font-family: $font-secondary;
+        font-size: 1.6em;
         columns: 2;
+      }
+
+      @media only screen and (max-width: $bp-mobile) {
+        width: 100%;
+        padding: 5em 5em;
+        h3 { margin: 0 0 1em 0;; }
+        &__text { columns: 1; }
+
       }
     }
   }
